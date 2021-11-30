@@ -1,37 +1,44 @@
 # Open-Insights
+
 Step 1 — Installing Jenkins on Kubernetes
 Create Namespace for Devops tools
 kubectl create namespace jenkins
 
-
-jenkins.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: jenkins
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: jenkins
-  template:
-    metadata:
-      labels:
-        app: jenkins
-    spec:
-      containers:
-      - name: jenkins
-        image: jenkins/jenkins:lts
-        ports:
-          - name: http-port
-            containerPort: 8080
-          - name: jnlp-port
-            containerPort: 50000
-        volumeMounts:
-          - name: jenkins-vol
-            mountPath: /var/jenkins_vol
-      volumes:
-        - name: jenkins-vol
-          emptyDir: {}
+cd Open-Insights/jenkins/
 
 kubectl create -f jenkins.yaml --namespace jenkins
+kubectl get pods -n jenkins
+
+
+cd Open-Insights/jenkins/jenkins-service.yaml
+Now create the Service in the same namespace
+kubectl create -f jenkins-service.yaml --namespace jenkins
+kubectl get services --namespace jenkins
+
+
+Step 2 — Accessing the Jenkins UI
+In this step, you will access and explore the Jenkins UI. Your NodePort service is accessible on port 30000 across the cluster nodes. You need to retrieve a node IP to access the Jenkins UI.
+
+kubectl get pods -n jenkins
+
+
+kubectl logs jenkins-id -n jenkins
+you will get jenkins password
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+jenkins--password
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+
+
