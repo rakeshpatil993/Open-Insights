@@ -1,6 +1,6 @@
 # Open-Insights
 
-**Jenkins installation:**
+**1. **Jenkins installation:****
 
 Step 1 — Installing Jenkins on Kubernetes
 Create Namespace for Devops tools
@@ -44,4 +44,38 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
 *************************************************************
 
 
+**2. **Nexus OSS 3 Installation****
+  
+  Setup Nexus OSS On Kubernetes
+  
+ Goto the Nexus directory for the nexus deployment.
+  
+  cd Open-Insights/nexus3/
+  
+  kubectl create -f .
+  
+  the nexus deploymen and service will be deployed on the jenkins namespace
+  
+  open nexus url with the AWS public ip eposed on port 32000. open the port 32000 in AWS securrity group
+  
+  http://54.173.129.176:32000/
+  
+  
+  
+  3**. SonarQube Deployment on K8s**
+  
+  goto to SonarQube directory for deployment yamls.
+  
+  cd Open-Insights/sonarqube/
 
+  deploy the PVC for postgres , postgres pod for sonarqube data storage.
+  deploy sonarQube and expose the sonar qube using the service and ingress
+  
+  kubectl create -f .
+  
+  
+  
+  
+  
+  
+  
