@@ -4,6 +4,7 @@
 
 Step 1 — Installing Jenkins on Kubernetes
 Create Namespace for Devops tools
+
 kubectl create namespace jenkins
 
 cd Open-Insights/jenkins/
