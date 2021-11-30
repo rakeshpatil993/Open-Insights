@@ -3,6 +3,7 @@ Step 1 — Installing Jenkins on Kubernetes
 Create Namespace for Devops tools
 kubectl create namespace jenkins
 
+
 jenkins.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -33,3 +34,4 @@ spec:
         - name: jenkins-vol
           emptyDir: {}
 
+kubectl create -f jenkins.yaml --namespace jenkins
