@@ -60,7 +60,7 @@ This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
   
   http://54.173.129.176:32000/
   
-  
+  *************************************************************
   
   3**. SonarQube Deployment on K8s**
   
